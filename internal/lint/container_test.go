@@ -213,7 +213,10 @@ func TestContainerCheckImageRegistry(t *testing.T) {
 	}{
 		"dockerDefault": {image: "dockerhub:1.2.3", issues: 0},
 		"cool":          {image: "docker.io/cool:1.2.3", issues: 0},
+		"namespacedCoolDefault": {image: "namespace/cool:1.2.3", issues: 0},
+		"namespacedCool": {image: "docker.io/namespace/cool:1.2.3", issues: 0},
 		"wrongRegistry": {pissues: 1, image: "wrong-registry.io/fred", issues: 1, severity: rules.ErrorLevel},
+		"namespacedWrongRegistry": {pissues: 1, image: "wrong-registry.io/namespace/fred", issues: 1, severity: rules.ErrorLevel},
 	}
 
 	ctx := test.MakeContext("containers", "container")
