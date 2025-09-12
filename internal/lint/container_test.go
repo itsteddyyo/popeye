@@ -229,7 +229,7 @@ func TestContainerCheckImageRegistry(t *testing.T) {
 
 		l := NewContainer("default/p1", newRangeCollectorWithRegistry(t))
 		t.Run(k, func(t *testing.T) {
-			l.checkImageTags(ctx, co.Image)
+			l.checkImageRegistry(ctx, co.Image)
 
 			assert.Equal(t, u.pissues, len(l.Outcome()["default/p1"]))
 			if len(l.Outcome()["default/p1"]) != 0 {
